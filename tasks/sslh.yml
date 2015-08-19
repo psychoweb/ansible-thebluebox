@@ -1,0 +1,7 @@
+- apt: name=sslh state=present
+
+- lineinfile: dest=/etc/default/sslh regexp=^RUN line='RUN=yes' backup=yes state=present
+
+- lineinfile: dest=/etc/default/sslh regexp=^DAEMON_OPTS line='DAEMON_OPTS="--user sslh --listen 0.0.0.0:8443 --http 127.0.0.1:80 --ssh 127.0.0.1:22 --ssl 127.0.0.1:443 --pidfile /var/run/sslh/sslh.pid"' backup=yes state=present
+
+- service: name=sslh enabled=yes state=started

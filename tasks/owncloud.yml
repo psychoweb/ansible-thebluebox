@@ -1,0 +1,10 @@
+
+- name: owncloud repository key
+  apt_key: url='http://download.opensuse.org/repositories/isv:ownCloud:community/Debian_7.0/Release.key' state=present
+
+- name: owncloud repository
+  apt_repository: repo='deb http://download.opensuse.org/repositories/isv:/ownCloud:/community/Debian_7.0/ /' state=present
+
+- name: owncloud package
+  apt: name="{{ item }}" state=latest
+  with_items: [owncloud, php-apc]

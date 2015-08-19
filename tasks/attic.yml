@@ -1,0 +1,6 @@
+- apt: name={{ item }} state=present
+  with_items: [libacl1-dev, python3-pip]
+  tags: attic
+
+- pip: name=Attic executable=pip-3.2 state=latest
+  tags: attic

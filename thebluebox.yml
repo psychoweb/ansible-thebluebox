@@ -1,0 +1,23 @@
+---
+- hosts: all
+  remote_user: pi
+  gather_facts: yes
+  become: yes
+
+  tasks:
+  - include_vars: vars/secrets.yml
+    tags: [duckdns,s3ql]
+
+  - include: tasks/ssh.yml tags=ssh
+  - include: tasks/s3ql.yml tags=s3ql
+  - include: tasks/sslh.yml tags=sslh
+  - include: tasks/owncloud.yml tags=owncloud
+  - include: tasks/duckdns.yml tags=duckdns
+  - include: tasks/attic.yml tags=attic
+
+# todo: attic crontab
+# todo: https
+
+  handlers:
+  - name: restart ssh
+    service: name=ssh state=restarted

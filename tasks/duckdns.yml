@@ -1,0 +1,5 @@
+- name: template updateDuckDns.sh
+  template: src=templates/updateDuckDns.sh.j2 dest=/usr/local/bin/updateDuckDns.sh mode=0700
+
+- name: cron duckdns
+  cron: name="update duckdns IP" minute="*/10" job="/usr/local/bin/updateDuckDns.sh >/dev/null 2>/dev/null" state=present
