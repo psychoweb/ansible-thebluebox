@@ -1,10 +1,10 @@
 - apt: name=s3ql state=present
 
 - name: template {{ s3ql_thebluebox_authfile }}
-  template: src=templates/s3ql_authfile.j2 dest={{ s3ql_thebluebox_authfile }} mode=0600
+  template: src=s3ql_authfile.j2 dest={{ s3ql_thebluebox_authfile }} mode=0600
 
 - name: template /etc/init.d/s3ql
-  template: src=templates/s3ql-init.j2 dest=/etc/init.d/s3ql mode=0755
+  template: src=s3ql-init.j2 dest=/etc/init.d/s3ql mode=0755
 
 - name: cron s3ql (workaround)
   cron: name="Ensure s3ql is mounted" minute="*" job="/etc/init.d/s3ql start >/dev/null 2>/dev/null" state=present

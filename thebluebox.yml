@@ -4,20 +4,13 @@
   gather_facts: yes
   become: yes
 
-  tasks:
-  - include_vars: vars/secrets.yml
-    tags: [duckdns,s3ql]
+  roles:
+    - { role: ssh, tags: ['ssh'] }
+    - { role: sslh, tags: ['sslh'] }
+    - { role: owncloud, tags: ['owncloud'] }
+    - { role: s3ql, tags: ['s3l'] }
+    - { role: attic, tags: ['attic'] }
+    - { role: duckdns, tags: ['duckdns'] }
 
-  - include: tasks/ssh.yml tags=ssh
-  - include: tasks/s3ql.yml tags=s3ql
-  - include: tasks/sslh.yml tags=sslh
-  - include: tasks/owncloud.yml tags=owncloud
-  - include: tasks/duckdns.yml tags=duckdns
-  - include: tasks/attic.yml tags=attic
-
-# todo: attic crontab
-# todo: https
-
-  handlers:
-  - name: restart ssh
-    service: name=ssh state=restarted
+  # todo: attic crontab
+  # todo: https
