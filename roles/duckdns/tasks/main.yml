@@ -1,3 +1,5 @@
+---
+
 - name: template updateDuckDns.sh
   template: src=updateDuckDns.sh.j2 dest=/usr/local/bin/updateDuckDns.sh mode=0700
 

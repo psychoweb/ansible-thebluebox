@@ -1,12 +1,14 @@
-  - name: add SSH keys
-    authorized_key: user=pi manage_dir=yes state=present  key='ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQChFYRvgkAyhOjCFWOMqhlX0vNt1/91a2BGdBLaeJyPgMCg1HT8bmc/Mll31iGeilNaTlWAanjqDp/WB6ji/gbOcAWZT0gGg1L9bwJ+MURqFAHzi4/cZtY1fuo4ZaMuqf6ySDb9ZnLSIYNu3Vuy5OAqBXhN00aiSBri0qaxfLrZnsl4o3XgS9CsSerCz0gXfH7FBYJYO45GCOv1S4PQHg/s1Yirnpwy1HcupYDm52MjPveDXqJupEXgIU5h+7IPykDBTevaX2F50jokRWs+UbrVrOKcI+fRcjZbtgr1rVgHaa4VoCCvFl6tPwZwkiWirrtrVu3wwZ3MsaEGo372CLal psy@bmyguest'
+---
 
-  - name: SSH disable password login
-    lineinfile: dest=/etc/ssh/sshd_config regexp=^PasswordAuthentication line='PasswordAuthentication no' backup=yes state=present
-    notify:
-      - restart ssh
+- name: add SSH keys
+  authorized_key: user=pi manage_dir=yes state=present  key='ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQChFYRvgkAyhOjCFWOMqhlX0vNt1/91a2BGdBLaeJyPgMCg1HT8bmc/Mll31iGeilNaTlWAanjqDp/WB6ji/gbOcAWZT0gGg1L9bwJ+MURqFAHzi4/cZtY1fuo4ZaMuqf6ySDb9ZnLSIYNu3Vuy5OAqBXhN00aiSBri0qaxfLrZnsl4o3XgS9CsSerCz0gXfH7FBYJYO45GCOv1S4PQHg/s1Yirnpwy1HcupYDm52MjPveDXqJupEXgIU5h+7IPykDBTevaX2F50jokRWs+UbrVrOKcI+fRcjZbtgr1rVgHaa4VoCCvFl6tPwZwkiWirrtrVu3wwZ3MsaEGo372CLal psy@bmyguest'
 
-  - name: SSH disable root login
-    lineinfile: dest=/etc/ssh/sshd_config regexp=^PermitRootLogin line='PermitRootLogin no' backup=yes state=present
-    notify:
-      - restart ssh
+- name: SSH disable password login
+  lineinfile: dest=/etc/ssh/sshd_config regexp=^PasswordAuthentication line='PasswordAuthentication no' backup=yes state=present
+  notify:
+    - restart ssh
+
+- name: SSH disable root login
+  lineinfile: dest=/etc/ssh/sshd_config regexp=^PermitRootLogin line='PermitRootLogin no' backup=yes state=present
+  notify:
+    - restart ssh

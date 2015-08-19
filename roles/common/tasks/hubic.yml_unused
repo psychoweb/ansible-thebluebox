@@ -1,35 +1,30 @@
 ---
-- hosts: all
-  remote_user: pi
-  gather_facts: no
-  become: yes
 
-  tasks:
-    - name: check if hubic is installed
-      command: dpkg-query -W hubic
-      register: hubic_installed
-      ignore_errors: True
-      changed_when: hubic_installed.rc != 0
+- name: check if hubic is installed
+  command: dpkg-query -W hubic
+  register: hubic_installed
+  ignore_errors: True
+  changed_when: hubic_installed.rc != 0
 
-    - name: download hubic
-      get_url: url='http://mir7.ovh.net/ovh-applications/hubic/hubiC-Linux/2.1.0/hubiC-Linux-2.1.0.53-linux.deb' dest=/tmp/hubic.deb
-      register: hubic_download
-      when: hubic_installed.rc != 0
+- name: download hubic
+  get_url: url='http://mir7.ovh.net/ovh-applications/hubic/hubiC-Linux/2.1.0/hubiC-Linux-2.1.0.53-linux.deb' dest=/tmp/hubic.deb
+  register: hubic_download
+  when: hubic_installed.rc != 0
 
-    - name: install/update hubic
-      apt:
-        deb: '/tmp/hubic.deb'
-        state: present
-      when: hubic_installed.rc != 0
+- name: install/update hubic
+  apt:
+    deb: '/tmp/hubic.deb'
+    state: present
+  when: hubic_installed.rc != 0
 
-    - name: install dbus-wrapper helper
-      get_url: url='https://raw.githubusercontent.com/psychoweb/hubic-headless/master/dbus-wrapper' dest=/usr/local/bin/ mode=0755
+- name: install dbus-wrapper helper
+  get_url: url='https://raw.githubusercontent.com/psychoweb/hubic-headless/master/dbus-wrapper' dest=/usr/local/bin/ mode=0755
 
-    - name: install hubic-headless
-      get_url: url='https://raw.githubusercontent.com/psychoweb/hubic-headless/master/hubic-headless' dest=/usr/local/bin/ mode=0755
+- name: install hubic-headless
+  get_url: url='https://raw.githubusercontent.com/psychoweb/hubic-headless/master/hubic-headless' dest=/usr/local/bin/ mode=0755
 
-    - name: install hubic-headless cron
-      cron: job='/usr/local/bin/hubic-headless backup update owncloud_config_enc' name='update backup' user=root minute=0 backup=yes state=absent
+- name: install hubic-headless cron
+  cron: job='/usr/local/bin/hubic-headless backup update owncloud_config_enc' name='update backup' user=root minute=0 backup=yes state=absent
 
 #    - name: copy encfs
 #      copy: src=/srv/myfiles/foo.conf dest=/etc/foo.conf owner=foo group=foo mode=0644

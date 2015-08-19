@@ -1,3 +1,4 @@
+---
 
 - name: owncloud repository key
   apt_key: url='http://download.opensuse.org/repositories/isv:ownCloud:community/Debian_7.0/Release.key' state=present

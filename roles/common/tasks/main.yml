@@ -1,4 +1,0 @@
----
-
-- include_vars: vars/secrets.yml
-  tags: [duckdns,s3ql]

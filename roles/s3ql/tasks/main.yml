@@ -1,3 +1,5 @@
+---
+
 - apt: name=s3ql state=present
 
 - name: template {{ s3ql_thebluebox_authfile }}
