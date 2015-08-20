@@ -2,7 +2,7 @@
 
 - apt: name={{ item }} state=present
   with_items: [libacl1-dev, python3-pip]
-  tags: attic
 
 - pip: name=Attic executable=pip-3.2 state=latest
-  tags: attic
+
+# attic -> - template: src=s3ql-init.j2 dest=/etc/init.d/s3ql mode=0755

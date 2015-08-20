@@ -2,7 +2,7 @@
 
 - apt: name=s3ql state=present
 
-- name: template {{ s3ql_thebluebox_authfile }}
+- name: template s3ql_thebluebox_authfile
   template: src=s3ql_authfile.j2 dest={{ s3ql_thebluebox_authfile }} mode=0600
 
 - name: template /etc/init.d/s3ql
