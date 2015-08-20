@@ -1,0 +1,12 @@
+#!/bin/sh
+REPOSITORY={{ attic_repository }}
+export ATTIC_PASSPHRASE={{ attic_passphrase }}
+
+attic create --stats                            \
+    $REPOSITORY::owncloud-`date +%Y-%m-%d`      \
+    /var/www/owncloud/config/                   \
+    /var/www/owncloud/data/                     \
+
+# Use the `prune` subcommand to maintain 7 daily, 4 weekly
+# and 6 monthly archives.
+attic prune -v $REPOSITORY --keep-daily=7 --keep-weekly=4 --keep-monthly=6
