@@ -1,0 +1,18 @@
+---
+
+- name: Copy certificate file
+  copy: content="{{ ssl_crt }}" dest=/etc/apache2/cert.crt owner=www-data
+  notify: restart httpd
+
+- name: Copy certificate key
+  copy: content="{{ ssl_key }}" dest=/etc/apache2/cert.key owner=www-data
+  notify: restart httpd
+
+- name: template ssl.conf
+  template: src=ssl.conf.j2 dest=/etc/apache2/sites-enabled/ssl.conf
+  notify: restart httpd
+
+- name: enable apache modules
+  apache2_module: name={{ item }} state=present
+  with_items: ['ssl','headers']
+  notify: restart httpd

@@ -8,6 +8,7 @@
   roles:
     - { role: ssh, tags: ['ssh'] }
     - { role: sslh, tags: ['sslh'] }
+    - { role: https, tags: ['https'] }
     - { role: owncloud, tags: ['owncloud'] }
     - { role: s3ql, tags: ['s3ql'] }
     - { role: attic, tags: ['attic'] }

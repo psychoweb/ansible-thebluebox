@@ -1,0 +1,15 @@
+<VirtualHost *:443>
+  #ServerName www.foo.com
+  #DocumentRoot /var/www/www.foo.com/htdocs
+
+  #CustomLog /var/log/apache/www.foo.com-access.log combined
+  #ErrorLog /var/log/apache/www.foo.com-error.log
+
+  # Example SSL configuration
+  SSLEngine on
+  #SSLProtocol all -SSLv2
+  #SSLCipherSuite HIGH:MEDIUM:!aNULL:!MD5
+  SSLCertificateFile "/etc/apache2/cert.crt"
+  SSLCertificateKeyFile "/etc/apache2/cert.key"
+  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+</VirtualHost>
