@@ -16,3 +16,6 @@
 
 - name: install sqlite3 for backup db
   apt: name=sqlite3 state=present
+
+- name: enable well-known url
+  copy: src=htaccess dest=/var/www/.htaccess owner=www-data group=www-data backup=yes

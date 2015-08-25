@@ -1,0 +1,13 @@
+---
+
+- name: set hostname
+  hostname: name=thebluebox.duckdns.org
+
+- name: enable more power to usb
+  lineinfile: dest=/boot/config.txt regexp=^max_usb_current line="max_usb_current=1" backup=yes state=present
+
+- name: configure network interfaces
+  copy: src=interfaces dest=/etc/network/interfaces backup=yes
+
+- name: configure wifi
+  template: src=wpa_supplicant.conf.j2 dest=/etc/wpa_supplicant/wpa_supplicant.conf backup=yes
