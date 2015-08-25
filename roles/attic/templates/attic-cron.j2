@@ -5,9 +5,14 @@ ATTIC=/usr/local/bin/attic
 REPOSITORY={{ attic_repository }}
 export ATTIC_PASSPHRASE={{ attic_passphrase }}
 
-$ATTIC create --stats                           \
-    $REPOSITORY::owncloud-`date +%Y-%m-%d_%H`   \
-    /var/www/owncloud/config/                   \
-    /var/www/owncloud/data/                     \
+sqlite3 /var/www/owncloud/data/owncloud.db '.backup /var/www/owncloud/data/owncloud-backup.db'
 
+$ATTIC create --stats                             \
+    $REPOSITORY::owncloud-`date +%Y-%m-%d_%H`     \
+    /var/www/owncloud/config/                     \
+    /var/www/owncloud/data/                       \
+    /var/www/owncloud/data/owncloud-backup.db     \
+    --exclude /var/www/owncloud/data/owncloud.db  \
+
+rm /var/www/owncloud/data/owncloud-backup.db
 $ATTIC prune -v $REPOSITORY --keep-hourly=24 --keep-daily=7 --keep-weekly=4 --keep-monthly=6
