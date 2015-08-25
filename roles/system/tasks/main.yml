@@ -4,7 +4,7 @@
   hostname: name=thebluebox.duckdns.org
 
 - name: enable more power to usb
-  lineinfile: dest=/boot/config.txt regexp=^max_usb_current line="max_usb_current=1" backup=yes state=present
+  lineinfile: dest=/boot/config.txt regexp=^max_usb_current line="max_usb_current=1" state=present
 
 - name: configure network interfaces
   copy: src=interfaces dest=/etc/network/interfaces backup=yes

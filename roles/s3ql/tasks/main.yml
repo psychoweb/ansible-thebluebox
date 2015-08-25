@@ -11,8 +11,8 @@
 - name: cron s3ql (workaround)
   cron: name="Ensure s3ql is mounted" minute="0" job="/etc/init.d/s3ql start >/dev/null 2>/dev/null" state=present
 
-#- name: enable s3ql dummy service
-#  service: name=s3ql enabled=yes
+- name: enable s3ql dummy service
+  service: name=s3ql enabled=yes
 
 - name: check s3ql-thebluebox-backup mount
   shell: mount | grep '{{ s3ql_thebluebox_storage_url }} on {{ s3ql_thebluebox_mountpoint }} type fuse.s3ql'

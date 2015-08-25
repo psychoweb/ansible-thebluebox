@@ -1,10 +1,9 @@
 ---
 
 - apt: name={{ item }} state=present
-  with_items: [libacl1-dev, python3-pip]
+  with_items: [libacl1-dev, python3-pip, python3-llfuse]
 
-- pip: name={{ item }} executable=pip-3.2 state=latest
-  with_items: [Attic, llfuse]
+- pip: name=Attic executable=pip-3.2 state=latest
 
 - template: src=attic-cron.j2 dest=/usr/local/sbin/attic-cron mode=0700
 
