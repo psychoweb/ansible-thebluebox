@@ -19,3 +19,11 @@
 
 - name: enable well-known url
   copy: src=htaccess dest=/var/www/.htaccess owner=www-data group=www-data backup=yes
+
+- name: install libapache2-mod-php5 (workaround)
+  apt: name=libapache2-mod-php5 state=present
+  notify: restart httpd
+
+- name: uninstall libapache2-mod-php5filter (workaround)
+  apt: name=libapache2-mod-php5filter state=absent
+  notify: restart httpd

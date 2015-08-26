@@ -14,3 +14,5 @@
     - { role: s3ql, tags: ['s3ql'] }
     - { role: attic, tags: ['attic'] }
     - { role: duckdns, tags: ['duckdns'] }
+
+#todo: s3ql not starting at boot
