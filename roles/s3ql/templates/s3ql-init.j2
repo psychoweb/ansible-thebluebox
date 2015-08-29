@@ -4,7 +4,6 @@ STORAGE_URL="{{ s3ql_thebluebox_storage_url }}"
 MOUNTPOINT="{{ s3ql_thebluebox_mountpoint }}"
 AUTHFILE="{{ s3ql_thebluebox_authfile }}"
 
-#start on interface up, stop when shutting down
 if [ "$1" = start ]; then
  mount | grep '{{ s3ql_thebluebox_storage_url }} on {{ s3ql_thebluebox_mountpoint }} type fuse.s3ql'
 	if [ "$?" -ne 0 ]; then
@@ -12,6 +11,5 @@ if [ "$1" = start ]; then
 	 mount.s3ql --quiet --authfile "$AUTHFILE" "$STORAGE_URL" "$MOUNTPOINT"
 	fi
 elif [ "$1" = stop ]; then
-	umount.s3ql --authfile "$AUTHFILE" "$MOUNTPOINT"
- echo 'stopped s3ql' >> /root/ifup_s3ql_status
+ 	umount.s3ql "$MOUNTPOINT"
 fi

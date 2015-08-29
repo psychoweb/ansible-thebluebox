@@ -16,3 +16,7 @@
     - { role: duckdns, tags: ['duckdns'] }
 
 #todo: s3ql not starting at boot
+#todo: monitoring
+#  - last attic backup (date/status)
+#  - attic backup consistency
+#  - s3ql consistency

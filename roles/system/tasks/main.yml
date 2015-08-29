@@ -3,8 +3,16 @@
 - name: set hostname
   hostname: name=thebluebox.duckdns.org
 
-- name: enable more power to usb
+- name: increase usb power
   lineinfile: dest=/boot/config.txt regexp=^max_usb_current line="max_usb_current=1" state=present
+
+- name: check if rootfs is expanded
+  stat: path=/.rootfs_expanded
+  register: rootfs_expanded
+  changed_when: rootfs_expanded.stat['exists'] == False
+  notify:
+    - expand rootfs
+    - mark rootfs as expanded
 
 - name: configure network interfaces
   copy: src=interfaces dest=/etc/network/interfaces backup=yes

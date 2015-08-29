@@ -1,0 +1,7 @@
+---
+
+- name: expand rootfs
+  command: /usr/bin/raspi-config --expand-rootfs
+
+- name: mark rootfs as expanded
+  file: path=/.rootfs_expanded state=touch
