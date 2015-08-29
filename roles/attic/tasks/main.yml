@@ -5,6 +5,7 @@
 
 - pip: name=Attic executable=pip-3.2 state=latest
 
+#todo: llfuse installation from pip work from cli, but not from ansible
 - pip: name=llfuse executable=pip-3.2 state=latest
 
 - template: src=attic-cron.j2 dest=/usr/local/sbin/attic-cron mode=0700

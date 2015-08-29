@@ -14,6 +14,9 @@
     - expand rootfs
     - mark rootfs as expanded
 
+#- name: remove X11 libs/pkgs
+#  command: apt-get -y remove --auto-remove --purge libx11-.*
+
 - name: configure network interfaces
   copy: src=interfaces dest=/etc/network/interfaces backup=yes
 

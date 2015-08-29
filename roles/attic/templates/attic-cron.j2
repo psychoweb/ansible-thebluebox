@@ -21,7 +21,7 @@ $ATTIC create --stats                                \
 
 # todo: exclude temp sqlite files?
 
-rm /var/www/owncloud/data/owncloud-backup.db
+rm /var/www/owncloud/data/backup-owncloud.db
 sudo -u www-data php /var/www/owncloud/occ maintenance:mode --off
 
 $ATTIC prune -v $REPOSITORY --keep-hourly=24 --keep-daily=7 --keep-weekly=4 --keep-monthly=6
