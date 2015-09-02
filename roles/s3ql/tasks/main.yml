@@ -25,5 +25,5 @@
   when: 's3ql_thebluebox_backup_mounted.rc != 0'
 
 - name: mount s3ql-thebluebox-backup
-  command: 'mount.s3ql --authfile {{ s3ql_thebluebox_authfile }} {{ s3ql_thebluebox_storage_url }} {{ s3ql_thebluebox_mountpoint }}'
+  command: 'mount.s3ql {{ s3ql_thebluebox_storage_url }} {{ s3ql_thebluebox_mountpoint }}'
   when: 's3ql_thebluebox_backup_mounted.rc != 0'
