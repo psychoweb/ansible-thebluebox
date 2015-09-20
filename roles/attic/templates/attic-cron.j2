@@ -19,8 +19,6 @@ $ATTIC create --stats                                \
     /var/www/owncloud/data/backup-owncloud.db        \
     --exclude '/var/www/owncloud/data/owncloud.*.db' \
 
-# todo: exclude temp sqlite files?
-
 rm /var/www/owncloud/data/backup-owncloud.db
 sudo -u www-data php /var/www/owncloud/occ maintenance:mode --off
 
