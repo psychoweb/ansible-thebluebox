@@ -23,3 +23,7 @@ rm /var/www/owncloud/data/backup-owncloud.db
 sudo -u www-data php /var/www/owncloud/occ maintenance:mode --off
 
 $ATTIC prune -v $REPOSITORY --keep-hourly=24 --keep-daily=7 --keep-weekly=4 --keep-monthly=6
+
+if mountpoint -q "{{ s3ql_thebluebox_mountpoint }}" ; then
+    rsync -a "{{ attic_repository }}" "{{ s3ql_thebluebox_mountpoint }}/"
+fi

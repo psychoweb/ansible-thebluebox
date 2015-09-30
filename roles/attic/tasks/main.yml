@@ -1,7 +1,7 @@
 ---
 
 - apt: name={{ item }} state=present
-  with_items: [libacl1-dev, python3-pip, libfuse-dev]
+  with_items: [ rsync, libacl1-dev, python3-pip, libfuse-dev]
 
 - pip: name=Attic executable=pip-3.2 state=latest
 
