@@ -7,6 +7,7 @@
 
   roles:
     - { role: system, tags: ['system'] }
+    - { role: tlsdate, tags: ['tlsdate'] }
     - { role: ssh, tags: ['ssh'] }
     - { role: sslh, tags: ['sslh'] }
     - { role: owncloud, tags: ['owncloud'] }
@@ -17,5 +18,3 @@
 
 #todo: monitoring
 #  - last attic backup (date/status)
-#  - attic backup consistency
-#  - s3ql consistency

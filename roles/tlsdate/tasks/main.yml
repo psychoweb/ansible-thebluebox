@@ -1,0 +1,5 @@
+---
+
+- service: name=ntp state=stopped enabled=no
+- apt: name=tlsdate state=latest update_cache=yes
+- service: name=tlsdated state=started enabled=yes
