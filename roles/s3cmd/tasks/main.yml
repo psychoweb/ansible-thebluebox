@@ -1,0 +1,6 @@
+---
+
+- apt: name=s3cmd state=present
+
+- name: template s3cmd config
+  template: src=s3cmd_config.j2 dest={{ s3cmd_config }} mode=0600

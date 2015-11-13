@@ -11,19 +11,14 @@ sqlite3 /var/www/owncloud/data/owncloud.db '.backup /var/www/owncloud/data/backu
 
 $ATTIC create --stats                                \
     $REPOSITORY::owncloud-`date +%Y-%m-%d_%H`        \
-    /var/www/owncloud/config/                        \
-    /var/www/owncloud/data/                          \
-    /var/www/owncloud/apps/calendar/                 \
-    /var/www/owncloud/apps/tasks/                    \
-    /var/www/owncloud/apps/contacts/                 \
-    /var/www/owncloud/data/backup-owncloud.db        \
+    /var/www/owncloud/                               \
     --exclude '/var/www/owncloud/data/owncloud.*.db' \
 
 rm /var/www/owncloud/data/backup-owncloud.db
 sudo -u www-data php /var/www/owncloud/occ maintenance:mode --off
 
-$ATTIC prune -v $REPOSITORY --keep-hourly=24 --keep-daily=7 --keep-weekly=4 --keep-monthly=6
-
-if mountpoint -q "{{ s3ql_thebluebox_mountpoint }}" ; then
-    rsync -a --delete "{{ attic_repository }}" "{{ s3ql_thebluebox_mountpoint }}/"
+$ATTIC check $REPOSITORY
+if [ $? -eq 0 ] ; then
+    $ATTIC prune -v $REPOSITORY --keep-hourly=24 --keep-daily=7 --keep-weekly=4 --keep-monthly=6
+    s3cmd --delete-removed sync $REPOSITORY {{ s3_thebluebox_bucket }}
 fi

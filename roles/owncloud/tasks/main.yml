@@ -1,10 +1,10 @@
 ---
 
 - name: owncloud repository key
-  apt_key: url='http://download.opensuse.org/repositories/isv:ownCloud:community/Debian_7.0/Release.key' state=present
+  apt_key: url='https://download.owncloud.org/download/repositories/stable/Debian_8.0/Release.key' state=present
 
 - name: owncloud repository
-  apt_repository: repo='deb http://download.opensuse.org/repositories/isv:/ownCloud:/community/Debian_7.0/ /' state=present
+  apt_repository: repo='deb http://download.owncloud.org/download/repositories/stable/Debian_8.0/ /' state=present
 
 - name: owncloud package
   apt: name="{{ item }}" state=latest

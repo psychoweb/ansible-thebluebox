@@ -11,7 +11,7 @@
     - { role: sslh, tags: ['sslh'] }
     - { role: owncloud, tags: ['owncloud'] }
     - { role: https, tags: ['https'] }
-    - { role: s3ql, tags: ['s3ql'] }
+    - { role: s3cmd, tags: ['s3cmd'] }
     - { role: attic, tags: ['attic'] }
     - { role: duckdns, tags: ['duckdns'] }
 
