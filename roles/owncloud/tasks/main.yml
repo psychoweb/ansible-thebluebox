@@ -8,7 +8,7 @@
 
 - name: owncloud package
   apt: name="{{ item }}" state=latest
-  with_items: [owncloud, php-apc]
+  with_items: [owncloud, redis-server, php5-redis, php5-apcu]
   notify: restart httpd
 
 - name: enable apc commandline for owncloud maintenance mode
