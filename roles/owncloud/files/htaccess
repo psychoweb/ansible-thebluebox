@@ -1,2 +1,0 @@
-Redirect 301 /.well-known/carddav /owncloud/remote.php/carddav
-Redirect 301 /.well-known/caldav /owncloud/remote.php/caldav

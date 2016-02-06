@@ -1,15 +1,7 @@
 ---
 
-- name: Copy certificate file
-  copy: content="{{ ssl_crt }}" dest=/etc/apache2/cert.pem owner=www-data
-  notify: restart httpd
-
-- name: Copy certificate key
-  copy: content="{{ ssl_key }}" dest=/etc/apache2/privkey.pem owner=www-data
-  notify: restart httpd
-
-- name: Copy certificate chain
-  copy: content="{{ ssl_chain }}" dest=/etc/apache2/chain.pem owner=www-data
+- name: Listen to port 80443
+  replace: dest=/etc/apache2/ports.conf regexp='Listen 443' replace='Listen 80443'
   notify: restart httpd
 
 - name: template ssl.conf
