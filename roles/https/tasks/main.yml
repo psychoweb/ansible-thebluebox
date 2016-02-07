@@ -1,7 +1,7 @@
 ---
 
-- name: Listen to port 80443
-  replace: dest=/etc/apache2/ports.conf regexp='Listen 443' replace='Listen 80443'
+- name: Listen to port 8443
+  replace: dest=/etc/apache2/ports.conf regexp='Listen 443' replace='Listen 8443'
   notify: restart httpd
 
 - name: template ssl.conf
