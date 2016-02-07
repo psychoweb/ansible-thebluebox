@@ -17,5 +17,6 @@
     - { role: duckdns, tags: ['duckdns'] }
     - { role: gogs, tags: ['gogs'] }
 
+#TODO: configure gogs attic backup
 #todo: monitoring
 #  - last attic backup (date/status)
