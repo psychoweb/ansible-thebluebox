@@ -17,6 +17,6 @@
     - { role: duckdns, tags: ['duckdns'] }
     - { role: gogs, tags: ['gogs'] }
 
-#TODO: configure gogs attic backup
+#TODO: add letsencrypt cron
 #todo: monitoring
 #  - last attic backup (date/status)

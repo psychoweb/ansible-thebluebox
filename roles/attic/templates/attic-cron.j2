@@ -5,17 +5,31 @@ ATTIC=/usr/local/bin/attic
 REPOSITORY={{ attic_repository }}
 export ATTIC_PASSPHRASE={{ attic_passphrase }}
 
+### BEGIN PRE BACKUP TASKS ###
 # wrap backup steps around maintenance mode
 sudo -u www-data php /var/www/owncloud/occ maintenance:mode --on
 sqlite3 /var/www/owncloud/data/owncloud.db '.backup /var/www/owncloud/data/backup-owncloud.db'
 
+systemctl stop gogs
+### END PRE BACKUP TASKS ###
+
 $ATTIC create --stats                                \
-    $REPOSITORY::owncloud-`date +%Y-%m-%d_%H`        \
-    /var/www/owncloud/                               \
     --exclude '/var/www/owncloud/data/owncloud.*.db' \
+    --exclude '/home/git/gogs/log/*.log'             \
+    --exclude '/home/git/gogs/data/sessions/*'       \
+    $REPOSITORY::`date +%Y-%m-%d_%H`                 \
+    /var/www/owncloud/                               \
+    /home/git/gogs/                                  \
+    /home/git/gogs-repositories/                     \
+    /home/git/gogs.ini                               \
+    /home/git/gogs.db
+
+### BEGIN POST BACKUP TASKS ###
+systemctl start gogs
 
 rm /var/www/owncloud/data/backup-owncloud.db
 sudo -u www-data php /var/www/owncloud/occ maintenance:mode --off
+### END POST BACKUP TASKS ###
 
 $ATTIC check $REPOSITORY
 if [ $? -eq 0 ] ; then
