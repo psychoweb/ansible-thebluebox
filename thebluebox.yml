@@ -15,6 +15,7 @@
     - { role: s3cmd, tags: ['s3cmd'] }
     - { role: attic, tags: ['attic'] }
     - { role: duckdns, tags: ['duckdns'] }
+    - { role: gogs, tags: ['gogs'] }
 
 #todo: monitoring
 #  - last attic backup (date/status)

@@ -1,0 +1,13 @@
+---
+
+#TODO: define here the Proxy settings for apache
+
+#TODO: define httpd restarts in common
+- name: enable apache modules
+  apache2_module: name=proxy_http state=present
+#  notify: restart httpd
+
+#TODO: reload systemd conf
+- name: template systemd file
+  template: src=gogs.service.j2 dest=/etc/systemd/system/multi-user.target.wants/gogs.service
+#  notify: restart httpd
