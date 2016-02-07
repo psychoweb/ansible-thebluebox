@@ -1,0 +1,7 @@
+<Proxy *>
+  Order allow,deny
+  Allow from all
+</Proxy>
+
+ProxyPass /git http://127.0.0.1:3000
+ProxyPassReverse /git http://127.0.0.1:3000
