@@ -18,6 +18,7 @@ systemctl stop gogs
 
 $ATTIC create --stats                                \
     --exclude '/var/www/owncloud/data/owncloud.*.db' \
+    --exclude '/var/www/owncloud/data/owncloud.log'  \
     --exclude '/home/git/gogs/log/*.log'             \
     --exclude '/home/git/gogs/data/sessions/*'       \
     $REPOSITORY::`date +%Y-%m-%d_%H`                 \
