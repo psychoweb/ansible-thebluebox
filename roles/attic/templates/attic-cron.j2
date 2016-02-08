@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# exit with error if any of the follwing commands fail
+set -e
+
 # default binary installation is not in PATH
 ATTIC=/usr/local/bin/attic
 REPOSITORY={{ attic_repository }}
