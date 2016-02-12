@@ -1,0 +1,26 @@
+#!/bin/bash
+
+while read URI ; do
+  FILE=`echo $URI | cut -d '?' -f 1`
+  NEWER_THAN=`echo $URI | cut -d '?' -f 2`
+  if [[ -r "$FILE" && $NEWER_THAN =~ ^[0-9]+[smhd]$ ]] ; then
+    NEWER_THAN_SECONDS=${NEWER_THAN: : -1}
+    TIME_SUFFIX=${NEWER_THAN: -1}
+    case "$TIME_SUFFIX" in
+    d)
+      NEWER_THAN_SECONDS=$(( $NEWER_THAN_SECONDS * 24 ))
+      ;&
+    h)
+      NEWER_THAN_SECONDS=$(( $NEWER_THAN_SECONDS * 60 ))
+      ;&
+    m)
+      NEWER_THAN_SECONDS=$(( $NEWER_THAN_SECONDS * 60 ))
+    esac
+
+    [[ $(( `date +%s` - `date +%s -r "$FILE"` )) -le $NEWER_THAN_SECONDS ]]
+    RESULT=$?
+    echo $RESULT
+  else
+    echo "-1"
+  fi
+done
