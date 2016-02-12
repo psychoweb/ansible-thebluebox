@@ -12,3 +12,9 @@
   apache2_module: name={{ item }} state=present
   with_items: ['ssl','headers']
   notify: restart httpd
+
+- name: clone letsencrypt repository
+  git: repo=https://github.com/letsencrypt/letsencrypt dest=/opt/letsencrypt
+
+- name: enable letsencrypt cron
+  cron: name="letsencrypt" minute="0" hour="0" day="1" job="/opt/letsencrypt/letsencrypt-auto certonly --agree-tos --renew-by-default --webroot -w /var/www/html -d {{ domain }}" state=present

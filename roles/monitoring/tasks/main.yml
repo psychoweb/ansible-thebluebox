@@ -1,0 +1,12 @@
+---
+
+- name: template ServeFileIfNewerThan.sh
+  template: src=ServeFileIfNewerThan.sh.j2 dest=/usr/local/bin/ServeFileIfNewerThan.sh mode=0755
+  notify: restart httpd
+
+- name: template apache monitor.conf
+  template: src=monitor.conf.j2 dest=/etc/apache2/conf-enabled/monitor.conf
+  notify: restart httpd
+
+- name: create monitor folder
+  file: path=/var/www/html/monitor state=directory mode=0755

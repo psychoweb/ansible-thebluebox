@@ -16,7 +16,7 @@
     - { role: attic, tags: ['attic'] }
     - { role: duckdns, tags: ['duckdns'] }
     - { role: gogs, tags: ['gogs'] }
+    - { role: monitoring, tags: ['monitoring'] }
 
-#TODO: add letsencrypt cron
 #todo: monitoring
 #  - last attic backup (date/status)

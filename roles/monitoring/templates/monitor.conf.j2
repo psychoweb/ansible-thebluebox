@@ -1,0 +1,7 @@
+RewriteEngine on
+RewriteMap ServeFileIfNewerThan "prg:/usr/local/bin/ServeFileIfNewerThan.sh"
+
+<Location "/monitor">
+  RewriteCond ${ServeFileIfNewerThan:%{DOCUMENT_ROOT}%{REQUEST_URI}?%{QUERY_STRING}} !-eq0
+  RewriteRule ^ - [L,R=406]
+</Location>
