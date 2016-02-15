@@ -1,0 +1,8 @@
+#!/bin/bash
+
+/opt/letsencrypt/letsencrypt-auto certonly \
+    --agree-tos \
+    --renew-by-default \
+    --webroot -w /var/www/html \
+    -d {{ domain }} \
+&& service apache2 reload
