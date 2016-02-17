@@ -4,5 +4,5 @@
     --agree-tos \
     --renew-by-default \
     --webroot -w /var/www/html \
-    -d {{ domain }} \
+    -d {{ domain }} > /tmp/letsencrypt-renew.log 2>&1 \
 && service apache2 reload
