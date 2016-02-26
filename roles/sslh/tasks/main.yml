@@ -2,6 +2,7 @@
 
 - lineinfile: dest=/etc/default/sslh regexp=^RUN line='RUN=yes' backup=yes state=present
 
-- lineinfile: dest=/etc/default/sslh regexp=^DAEMON_OPTS line='DAEMON_OPTS="--user sslh --listen 0.0.0.0:443 --http 127.0.0.1:80 --ssh 127.0.0.1:22 --ssl 127.0.0.1:8443 --pidfile /var/run/sslh/sslh.pid"' backup=yes state=present
+# listening to domain ensure we ask the router for the right address. Also public-network proof (just in case)
+- lineinfile: dest=/etc/default/sslh regexp=^DAEMON_OPTS line='DAEMON_OPTS="--user sslh --listen {{ domain }}:443 --http 127.0.0.1:80 --ssh 127.0.0.1:22 --ssl 127.0.0.1:443 --pidfile /var/run/sslh/sslh.pid"' backup=yes state=present
 
 - service: name=sslh enabled=yes state=started

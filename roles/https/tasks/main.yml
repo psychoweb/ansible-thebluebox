@@ -1,7 +1,7 @@
 ---
 
 - name: Listen to port 8443
-  replace: dest=/etc/apache2/ports.conf regexp='Listen 443' replace='Listen 8443'
+  replace: dest=/etc/apache2/ports.conf regexp='Listen 443' replace='Listen localhost:443'
   notify: restart httpd
 
 - name: disable default site
@@ -27,5 +27,5 @@
   cron: name="letsencrypt" minute="0" hour="0" weekday="3" job="/usr/local/sbin/letsencrypt-renew.sh" state=present
 
 - name: create writable folder for personal site
-  file: path=/var/www/html/site/ state=present mode=0777
+  file: path=/var/www/html/site/ state=directory mode=0777
 
