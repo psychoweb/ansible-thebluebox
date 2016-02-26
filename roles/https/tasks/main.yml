@@ -25,3 +25,7 @@
 
 - name: enable letsencrypt cron
   cron: name="letsencrypt" minute="0" hour="0" weekday="3" job="/usr/local/sbin/letsencrypt-renew.sh" state=present
+
+- name: create writable folder for personal site
+  file: path=/var/www/html/site/ state=present mode=0777
+
