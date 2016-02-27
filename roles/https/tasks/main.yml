@@ -1,6 +1,6 @@
 ---
 
-- name: Listen to port 8443
+- name: Listen only to localhost
   replace: dest=/etc/apache2/ports.conf regexp='Listen 443' replace='Listen localhost:443'
   notify: restart httpd
 

@@ -3,12 +3,11 @@
         DocumentRoot /var/www/html
         ErrorLog ${APACHE_LOG_DIR}/error.log
         CustomLog ${APACHE_LOG_DIR}/access.log combined
-        Redirect permanent / https://{{ domain }}/
+        Redirect / https://{{ domain }}/
 </VirtualHost>
 
 
 <VirtualHost *:443>
-  Redirect / /site/
   #ServerName www.foo.com
   #DocumentRoot /var/www/www.foo.com/htdocs
   ServerSignature Off
