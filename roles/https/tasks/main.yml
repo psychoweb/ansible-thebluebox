@@ -17,6 +17,9 @@
   with_items: ['ssl','headers']
   notify: restart httpd
 
+- name: install git
+  apt: name="git" state=latest
+
 - name: clone letsencrypt repository
   git: repo=https://github.com/letsencrypt/letsencrypt dest=/opt/letsencrypt force=yes update=yes
 
@@ -28,4 +31,3 @@
 
 - name: create writable folder for personal site
   file: path=/var/www/html/site/ state=directory mode=0777
-

@@ -12,7 +12,7 @@
   notify: restart httpd
 
 - name: enable apc commandline for owncloud maintenance mode
-  lineinfile: dest=/etc/php5/mods-available/apc.ini regexp=^apc.enable_cli line='apc.enable_cli=1' backup=yes state=present
+  lineinfile: dest=/etc/php5/mods-available/apcu.ini regexp=^apc.enable_cli line='apc.enable_cli=1' backup=yes state=present
 
 - name: install sqlite3 for backup db
   apt: name=sqlite3 state=present

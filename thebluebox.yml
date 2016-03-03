@@ -20,3 +20,6 @@
 
 #todo: monitoring
 #  - last attic backup (date/status)
+#  - don't backup if machine is not provisioned
+#  - restart sslh (and other service binding to single interface) on wicd postconnect
+#  - on first provisioning, certificates do not exist and https will refuse to start. Temporarily disable ssl.conf file
