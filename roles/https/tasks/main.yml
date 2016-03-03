@@ -17,6 +17,9 @@
   with_items: ['ssl','headers']
   notify: restart httpd
 
+- name: keybase proof
+  file: src=keybase.txt dest=/var/www/html/.well-known/keybase.txt owner=www-data group=www-data
+
 - name: install git
   apt: name="git" state=latest
 

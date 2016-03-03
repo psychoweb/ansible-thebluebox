@@ -1,0 +1,54 @@
+==================================================================
+https://keybase.io/psychoweb
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://thebluebox.duckdns.org
+  * I am psychoweb (https://keybase.io/psychoweb) on keybase.
+  * I have a public key ASBRPZoSaIgTi5S-B3wWQCjznQhXpgIz7hmLF0sgLvAw4Qo
+
+To do so, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "eldest_kid": "0120792a1422435ded4ecbb9e5dcf1e6492358fd96e8fca80d473d9067f98117ce590a",
+            "host": "keybase.io",
+            "kid": "0120513d9a126888138b94be077c164028f39d0857a60233ee198b174b202ef030e10a",
+            "uid": "eecceac6dcde8e95605a8a429f5c5e19",
+            "username": "psychoweb"
+        },
+        "service": {
+            "hostname": "thebluebox.duckdns.org",
+            "protocol": "https:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "client": {
+        "name": "keybase.io go client",
+        "version": "1.0.14"
+    },
+    "ctime": 1456992088,
+    "expire_in": 504576000,
+    "merkle_root": {
+        "ctime": 1456991997,
+        "hash": "02b73d0b16b01440c15f9193ba9df38bc56594f57a8e11dd865046b753fefcc5b1f4d4cfdf9a3ec4dde09e1bacd8c52858f8aaec27482a63373662f49a500d17",
+        "seqno": 399772
+    },
+    "prev": "3402a80b07b04db39e7c9490c54df99c210f453357e77c04df52d3d77d957fd3",
+    "seqno": 30,
+    "tag": "signature"
+}
+
+which yields the signature:
+
+g6Rib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgUT2aEmiIE4uUvgd8FkAo850IV6YCM+4ZixdLIC7wMOEKp3BheWxvYWTFAwB7ImJvZHkiOnsia2V5Ijp7ImVsZGVzdF9raWQiOiIwMTIwNzkyYTE0MjI0MzVkZWQ0ZWNiYjllNWRjZjFlNjQ5MjM1OGZkOTZlOGZjYTgwZDQ3M2Q5MDY3Zjk4MTE3Y2U1OTBhIiwiaG9zdCI6ImtleWJhc2UuaW8iLCJraWQiOiIwMTIwNTEzZDlhMTI2ODg4MTM4Yjk0YmUwNzdjMTY0MDI4ZjM5ZDA4NTdhNjAyMzNlZTE5OGIxNzRiMjAyZWYwMzBlMTBhIiwidWlkIjoiZWVjY2VhYzZkY2RlOGU5NTYwNWE4YTQyOWY1YzVlMTkiLCJ1c2VybmFtZSI6InBzeWNob3dlYiJ9LCJzZXJ2aWNlIjp7Imhvc3RuYW1lIjoidGhlYmx1ZWJveC5kdWNrZG5zLm9yZyIsInByb3RvY29sIjoiaHR0cHM6In0sInR5cGUiOiJ3ZWJfc2VydmljZV9iaW5kaW5nIiwidmVyc2lvbiI6MX0sImNsaWVudCI6eyJuYW1lIjoia2V5YmFzZS5pbyBnbyBjbGllbnQiLCJ2ZXJzaW9uIjoiMS4wLjE0In0sImN0aW1lIjoxNDU2OTkyMDg4LCJleHBpcmVfaW4iOjUwNDU3NjAwMCwibWVya2xlX3Jvb3QiOnsiY3RpbWUiOjE0NTY5OTE5OTcsImhhc2giOiIwMmI3M2QwYjE2YjAxNDQwYzE1ZjkxOTNiYTlkZjM4YmM1NjU5NGY1N2E4ZTExZGQ4NjUwNDZiNzUzZmVmY2M1YjFmNGQ0Y2ZkZjlhM2VjNGRkZTA5ZTFiYWNkOGM1Mjg1OGY4YWFlYzI3NDgyYTYzMzczNjYyZjQ5YTUwMGQxNyIsInNlcW5vIjozOTk3NzJ9LCJwcmV2IjoiMzQwMmE4MGIwN2IwNGRiMzllN2M5NDkwYzU0ZGY5OWMyMTBmNDUzMzU3ZTc3YzA0ZGY1MmQzZDc3ZDk1N2ZkMyIsInNlcW5vIjozMCwidGFnIjoic2lnbmF0dXJlIn2jc2lnxECpHm8HyHOx7nYmLY8cIoJT/0EKYCYLE+acFFqWbuGAzRWh0wSx7QVeMfU/3hNKQN1Jp4lg1oDXCq8tlpq+mV4AqHNpZ190eXBlIKN0YWfNAgKndmVyc2lvbgE=
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/psychoweb
+
+==================================================================
