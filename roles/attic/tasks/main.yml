@@ -7,7 +7,7 @@
 
 - template: src=attic-cron.j2 dest=/usr/local/sbin/attic-cron mode=0700
 
-- cron: name="Owncloud backup with Attic" minute="0" hour="*/2" job="/bin/bash -c '((/usr/local/sbin/attic-cron >/dev/null 2>&1 && echo OK) || echo KO) > /var/www/html/monitor/backup'" state=present
+- cron: name="Owncloud backup with Attic" minute="0" hour="*/2" job="/bin/bash -c '(/usr/local/sbin/attic-cron && echo OK > /var/www/html/monitor/backup) || echo KO > /var/www/html/monitor/backup'" state=present
 
 - name: export ATTIC_PASSPHRASE for calling from root commandline
   lineinfile: dest=/root/.bashrc regexp="^export ATTIC_PASSPHRASE" line="export ATTIC_PASSPHRASE={{ attic_passphrase }}" backup=yes state=present

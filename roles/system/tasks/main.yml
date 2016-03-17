@@ -14,11 +14,17 @@
     - expand rootfs
     - mark rootfs as expanded
 
-#- name: remove X11 libs/pkgs
-#  command: apt-get -y remove --auto-remove --purge libx11-.*
-
 - name: configure network interfaces
   copy: src=interfaces dest=/etc/network/interfaces backup=yes
 
 - name: configure wifi
   template: src=wpa_supplicant.conf.j2 dest=/etc/wpa_supplicant/wpa_supplicant.conf backup=yes
+
+- name: disable wifi power management
+  copy: src=8192cu.conf dest=/etc/modprobe.d/8192cu.conf
+
+- name: configure fallback connection for local vnc
+  copy: src=dhcpcd.conf dest=/etc/dhcpcd.conf backup=yes
+
+- name: install vnc
+  apt: name=tightvncserver state=present
